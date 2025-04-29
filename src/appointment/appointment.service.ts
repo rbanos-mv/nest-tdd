@@ -16,9 +16,23 @@ export class AppointmentService {
       throw new Error("appointment's endTime should be after startTime");
     }
 
+    if (this.endTimeIsInAnotherDay(appointmentData)) {
+      throw new Error(
+        "appointment's endTime should be in the same day as start time's",
+      );
+    }
+
     return Promise.resolve({
       ...appointmentData,
       confirmed: false,
     });
+  }
+
+  private endTimeIsInAnotherDay(appointmentData: AppointmentInput): boolean {
+    const differentDays =
+      appointmentData.endTime.getUTCDate() !==
+      appointmentData.startTime.getUTCDate();
+
+    return differentDays;
   }
 }
