@@ -45,9 +45,13 @@ describe('AppointmentService', () => {
     const startTime = new Date('2022-01-01T14:00:00Z');
     const endTime = new Date('2022-01-01T13:00:00Z');
 
+    const { id: patientId } = await patientService.register({
+      name: 'John Doe',
+    });
+
     await expect(
       service.scheduleAppointment({
-        patientId: 1,
+        patientId: patientId,
         startTime,
         endTime,
       }),
@@ -58,9 +62,13 @@ describe('AppointmentService', () => {
     const startTime = new Date('2022-01-01T14:00:00Z');
     const endTime = startTime;
 
+    const { id: patientId } = await patientService.register({
+      name: 'John Doe',
+    });
+
     await expect(
       service.scheduleAppointment({
-        patientId: 1,
+        patientId: patientId,
         startTime,
         endTime,
       }),
@@ -71,9 +79,13 @@ describe('AppointmentService', () => {
     const startTime = new Date('2022-01-01T14:00:00Z');
     const endTime = new Date('2022-01-02T00:00:00Z');
 
+    const { id: patientId } = await patientService.register({
+      name: 'John Doe',
+    });
+
     await expect(
       service.scheduleAppointment({
-        patientId: 1,
+        patientId: patientId,
         startTime,
         endTime,
       }),
@@ -86,9 +98,13 @@ describe('AppointmentService', () => {
     const startTime = new Date('2022-01-01T14:00:00Z');
     const endTime = new Date('2022-02-01T14:00:00Z');
 
+    const { id: patientId } = await patientService.register({
+      name: 'John Doe',
+    });
+
     await expect(
       service.scheduleAppointment({
-        patientId: 1,
+        patientId: patientId,
         startTime,
         endTime,
       }),
@@ -101,9 +117,13 @@ describe('AppointmentService', () => {
     const startTime = new Date('2022-01-01T14:00:00Z');
     const endTime = new Date('2023-01-01T14:00:00Z');
 
+    const { id: patientId } = await patientService.register({
+      name: 'John Doe',
+    });
+
     await expect(
       service.scheduleAppointment({
-        patientId: 1,
+        patientId: patientId,
         startTime,
         endTime,
       }),
