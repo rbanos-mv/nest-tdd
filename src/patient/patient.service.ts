@@ -15,4 +15,8 @@ export class PatientService {
 
     return Promise.resolve(newPatient);
   }
+
+  public async doesPatientExist(patientId: number): Promise<boolean> {
+    return Promise.resolve(patientId != patientId);
+  }
 }
