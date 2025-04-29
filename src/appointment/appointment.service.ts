@@ -12,7 +12,7 @@ export class AppointmentService {
   public async scheduleAppointment(
     appointmentData: AppointmentInput,
   ): Promise<Appointment> {
-    if (appointmentData.endTime < appointmentData.startTime) {
+    if (appointmentData.endTime <= appointmentData.startTime) {
       throw new Error("appointment's endTime should be after startTime");
     }
 
