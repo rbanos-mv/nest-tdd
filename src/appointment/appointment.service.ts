@@ -33,6 +33,10 @@ export class AppointmentService {
       appointmentData.endTime.getUTCDate() !==
       appointmentData.startTime.getUTCDate();
 
-    return differentDays;
+    const differentMonths =
+      appointmentData.endTime.getUTCMonth() !==
+      appointmentData.startTime.getUTCMonth();
+
+    return differentDays || differentMonths;
   }
 }
