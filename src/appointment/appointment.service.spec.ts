@@ -111,4 +111,17 @@ describe('AppointmentService', () => {
       "appointment's endTime should be in the same day as start time's",
     );
   });
+
+  it('should throw an error when the patient does not exist', async () => {
+    const startTime = new Date('2022-01-01T14:00:00Z');
+    const endTime = new Date('2022-01-01T15:00:00Z');
+
+    await expect(
+      service.scheduleAppointment({
+        patientId: 1,
+        startTime,
+        endTime,
+      }),
+    ).rejects.toThrow('Patient does not exist');
+  });
 });
